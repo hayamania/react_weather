@@ -6,13 +6,18 @@ function App() {
   return (
     <div className="App">
       <Weather />
-      <p>
-        This project is{" "}
-        <a href="https://github.com/hayamania/react_weather" target={"_blank"}>
-          open-sorced
-        </a>{" "}
-        and coded by Chie HYM
-      </p>
+      <footer>
+        <p>
+          This project is{" "}
+          <a
+            href="https://github.com/hayamania/react_weather"
+            target={"_blank"}
+          >
+            open-sorced
+          </a>{" "}
+          and coded by Chie HYM
+        </p>
+      </footer>{" "}
     </div>
   );
 }

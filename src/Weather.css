@@ -7,7 +7,6 @@
 }
 
 .Weather {
-  max-width: 70%;
   border-radius: 10px;
   margin: 20px auto;
   padding: 20px;
@@ -16,18 +15,38 @@
   font-family: "Barlow Condensed", sans-serif;
 }
 
-.Weather h1,
-.Weather h2 {
+.Weather h1 {
   font-family: "Raleway", sans-serif;
   font-weight: 600;
 }
-
 .Weather p {
   text-align: left;
 }
 .Weather form {
   text-align: center;
 }
+.Weather ul {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+}
+.Weather li {
+  line-height: 1;
+}
+.Weather .temperature {
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  font-size: 100px;
+  position: relative;
+  bottom: 30px;
+}
+
+.Weather .units {
+  position: relative;
+  bottom: 75px;
+  margin: 0 10px;
+}
+
 .Weather .icons {
   color: var(--text-color);
 }
