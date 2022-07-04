@@ -1,11 +1,22 @@
+:root {
+  --primary-color: #2b2d42;
+  --secondary-color: #8d99ae;
+  --text-color: #edf2f4;
+}
+
 .Weather {
   border: 1px solid lightgray;
   max-width: 70%;
   border-radius: 10px;
   margin: 20px auto;
   padding: 20px;
+  background-color: var(--primary-color);
+  color: var(--text-color);
 }
 
 .Weather p {
   text-align: left;
+}
+.Weather .icons {
+  color: var(--text-color);
 }
