@@ -23,7 +23,7 @@ export default function Weather() {
           <div className="col-sm-3">
             <h1>Perth</h1>
           </div>
-          <div className="col-sm-9">
+          <div className="col-sm-9 pt-1">
             <ul>
               <li>Last update: 10:20</li>
               <li>Sunny</li>
