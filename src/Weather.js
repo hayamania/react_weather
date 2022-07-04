@@ -3,7 +3,6 @@ import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Weather.css";
 import {
-  WiDaySunny,
   WiSunrise,
   WiSunset,
   WiHumidity,
@@ -11,14 +10,14 @@ import {
 } from "weather-icons-react";
 import PuffLoader from "react-spinners/PuffLoader";
 
-export default function Weather() {
-  let [city, setCity] = useState("Perth");
+export default function Weather(props) {
+  let [city, setCity] = useState(props.defaultCity);
   let [weather, setWeather] = useState({
-    loaded: false,
+    loaded: true,
     accessedTime: `10:20`,
-    city: `Tokyo`,
+    city: props.defaultCity,
     condition: `Sunny`,
-    icon: `10d`,
+    icon: `http://openweathermap.org/img/wn/10d.png`,
     temp: 23,
     humidity: 70,
     wind: 7,
@@ -39,7 +38,7 @@ export default function Weather() {
       accessedTime: `${accessTime.getHours()}:${accessTime.getMinutes()}`,
       city: response.data.name,
       condition: response.data.weather[0].description,
-      icon: response.data.weather[0].icon,
+      icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`,
       temp: Math.round(response.data.main.temp),
       humidity: response.data.main.humidity,
       wind: Math.round(response.data.wind.speed),
@@ -63,7 +62,7 @@ export default function Weather() {
   if (weather.loaded) {
     return (
       <div className="Weather">
-        <div className="Container">
+        <div className="container">
           <div className="row">
             <form onSubmit={getWeather}>
               <input
@@ -77,7 +76,7 @@ export default function Weather() {
           </div>
           <div className="row mt-2">
             <div className="col-sm-3">
-              <h1>{weather.city}</h1>
+              <h1 className="ps-2">{weather.city}</h1>
             </div>
             <div className="col-sm-9 pt-1">
               <ul>
@@ -88,14 +87,13 @@ export default function Weather() {
           </div>
           <div className="row">
             <div className="col-sm-4">
-              <WiDaySunny size={100} className="icons" />
-              {weather.icon}
+              <img src={weather.icon} />
             </div>
-            <div className="col-sm-4">
-              <span className="temperature">{weather.temp}</span>
+            <div className="col-sm-5">
+              <span className="temperature ps-2">{weather.temp}</span>
               <span className="units">°C | °F</span>
             </div>
-            <div className="col-sm-4">
+            <div className="col-sm-3">
               <ul>
                 <li>
                   <WiHumidity size={24} className="icons" />

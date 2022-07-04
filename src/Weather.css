@@ -33,8 +33,14 @@
 .Weather li {
   line-height: 1;
 }
+.Weather img {
+  width: 150px;
+}
 .Weather .loader {
   margin: 30px auto;
+}
+.Weather .container {
+  padding: 20px;
 }
 .Weather .temperature {
   font-family: "Raleway", sans-serif;
