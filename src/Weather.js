@@ -1,11 +1,13 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Weather.css";
-import { WiDaySunny } from "weather-icons-react";
-import { WiSunrise } from "weather-icons-react";
-import { WiSunset } from "weather-icons-react";
-import { WiHumidity } from "weather-icons-react";
-import { WiStrongWind } from "weather-icons-react";
+import {
+  WiDaySunny,
+  WiSunrise,
+  WiSunset,
+  WiHumidity,
+  WiStrongWind,
+} from "weather-icons-react";
 
 export default function Weather() {
   return (
