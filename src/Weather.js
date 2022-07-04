@@ -11,17 +11,23 @@ import {
 } from "weather-icons-react";
 import PuffLoader from "react-spinners/PuffLoader";
 
-export default function Weather(props) {
-  let [city, setCity] = useState(props.defaultCity);
+export default function Weather() {
+  let [city, setCity] = useState("Perth");
   let [weather, setWeather] = useState({
     loaded: false,
+    accessedTime: `10:20`,
+    city: `Tokyo`,
+    condition: `Sunny`,
+    icon: `10d`,
+    temp: 23,
+    humidity: 70,
+    wind: 7,
+    sunrise: `06:12`,
+    sunset: `19:07`,
   });
   const apiKey = `a5819625e2717720981216aa54bee886`;
   const apiUnits = `metric`;
   const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${apiUnits}`;
-
-  // get weather in default city
-  axios.get(apiUrl).then(showCurrentWeather);
 
   function showCurrentWeather(response) {
     let sunriseTime = new Date(response.data.sys.sunrise * 1000);
