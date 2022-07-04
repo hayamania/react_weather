@@ -31,7 +31,7 @@
   padding: 0;
 }
 .Weather li {
-  line-height: 1;
+  line-height: 1.2;
 }
 .Weather img {
   width: 150px;
