@@ -2,6 +2,7 @@ import React, { useState, CSSProperties } from "react";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Weather.css";
+import FormatDate from "./FormatDate";
 import {
   WiSunrise,
   WiSunset,
@@ -14,7 +15,8 @@ export default function Weather(props) {
   let [city, setCity] = useState(props.defaultCity);
   let [weather, setWeather] = useState({
     loaded: true,
-    accessedTime: `Mon 10:20`,
+    accessedDay: 0,
+    accessedTime: `10:20`,
     city: props.defaultCity,
     condition: `Sunny`,
     icon: `http://openweathermap.org/img/wn/10d.png`,
@@ -32,13 +34,11 @@ export default function Weather(props) {
     let sunriseTime = new Date(response.data.sys.sunrise * 1000);
     let sunsetTime = new Date(response.data.sys.sunset * 1000);
     let accessTime = new Date(response.data.dt * 1000);
-    const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
     setWeather({
       loaded: true,
-      accessedTime: `${
-        days[accessTime.getDay()]
-      } ${accessTime.getHours()}:${accessTime.getMinutes()}`,
+      accessedDay: `${accessTime.getDay()}`,
+      accessedTime: `${accessTime.getHours()}:${accessTime.getMinutes()}`,
       city: response.data.name,
       condition: response.data.weather[0].description,
       icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`,
@@ -83,7 +83,10 @@ export default function Weather(props) {
             </div>
             <div className="col-sm-9 pt-1">
               <ul>
-                <li>Last update: {weather.accessedTime}</li>
+                <li>
+                  Last update: <FormatDate date={weather.accessedDay} />{" "}
+                  {weather.accessedTime}
+                </li>
                 <li>{weather.condition}</li>
               </ul>
             </div>
