@@ -14,21 +14,8 @@ import PuffLoader from "react-spinners/PuffLoader";
 export default function Weather(props) {
   let [city, setCity] = useState(props.defaultCity);
   let [weather, setWeather] = useState({
-    loaded: true,
-    accessedDay: 0,
-    accessedTime: `10:20`,
-    city: props.defaultCity,
-    condition: `Sunny`,
-    icon: `http://openweathermap.org/img/wn/10d.png`,
-    temp: 23,
-    humidity: 70,
-    wind: 7,
-    sunrise: `06:12`,
-    sunset: `19:07`,
+    loaded: false,
   });
-  const apiKey = `a5819625e2717720981216aa54bee886`;
-  const apiUnits = `metric`;
-  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${apiUnits}`;
 
   function showCurrentWeather(response) {
     let sunriseTime = new Date(response.data.sys.sunrise * 1000);
@@ -54,9 +41,16 @@ export default function Weather(props) {
     });
   }
 
+  function searchApi() {
+    const apiKey = `a5819625e2717720981216aa54bee886`;
+    const apiUnits = `metric`;
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${apiUnits}`;
+    axios.get(apiUrl).then(showCurrentWeather);
+  }
+
   function getWeather(event) {
     event.preventDefault();
-    axios.get(apiUrl).then(showCurrentWeather);
+    searchApi();
   }
 
   function updateCity(event) {
@@ -124,6 +118,7 @@ export default function Weather(props) {
       </div>
     );
   } else {
+    searchApi();
     return (
       <div className="Weather">
         <h2 className="text-center">Loading...</h2>
