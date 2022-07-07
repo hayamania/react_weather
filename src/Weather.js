@@ -2,13 +2,7 @@ import React, { useState, CSSProperties } from "react";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Weather.css";
-import FormatDate from "./FormatDate";
-import {
-  WiSunrise,
-  WiSunset,
-  WiHumidity,
-  WiStrongWind,
-} from "weather-icons-react";
+import WeatherNow from "./WeatherNow";
 import PuffLoader from "react-spinners/PuffLoader";
 
 export default function Weather(props) {
@@ -71,49 +65,7 @@ export default function Weather(props) {
               <input type="submit" value={"Search"} />
             </form>
           </div>
-          <div className="row mt-2">
-            <div className="col-sm-3">
-              <h1 className="ps-2">{weather.city}</h1>
-            </div>
-            <div className="col-sm-9 pt-1">
-              <ul>
-                <li>
-                  Last update: <FormatDate date={weather.accessedDay} />{" "}
-                  {weather.accessedTime}
-                </li>
-                <li>{weather.condition}</li>
-              </ul>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-sm-4">
-              <img src={weather.icon} />
-            </div>
-            <div className="col-sm-5">
-              <span className="temperature ps-2">{weather.temp}</span>
-              <span className="units">°C | °F</span>
-            </div>
-            <div className="col-sm-3">
-              <ul>
-                <li>
-                  <WiHumidity size={24} className="icons" />
-                  Humidity: {weather.humidity}%
-                </li>
-                <li>
-                  <WiStrongWind size={24} className="icons" />
-                  Wind: {weather.wind} km/h
-                </li>
-                <li>
-                  <WiSunrise size={24} className="icons" />
-                  Sunrise: {weather.sunrise}
-                </li>
-                <li>
-                  <WiSunset size={24} className="icons" />
-                  Sunset: {weather.sunset}
-                </li>
-              </ul>
-            </div>
-          </div>
+          <WeatherNow data={weather} />
         </div>
       </div>
     );
