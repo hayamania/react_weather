@@ -1,5 +1,6 @@
 import React from "react";
 import FormatDate from "./FormatDate";
+import WeatherIcon from "./WeatherIcon";
 import {
   WiSunrise,
   WiSunset,
@@ -25,9 +26,9 @@ export default function WeatherNow(props) {
             </ul>
           </div>
         </div>
-        <div className="row">
+        <div className="row mt-3">
           <div className="col-sm-4">
-            <img src={props.data.icon} />
+            <WeatherIcon code={props.data.icon} />
           </div>
           <div className="col-sm-5">
             <span className="temperature ps-2">{props.data.temp}</span>

@@ -33,9 +33,6 @@
 .Weather li {
   line-height: 1.2;
 }
-.Weather img {
-  width: 150px;
-}
 .Weather .loader {
   margin: 30px auto;
 }

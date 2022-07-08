@@ -22,7 +22,7 @@ export default function Weather(props) {
       accessedTime: `${accessTime.getHours()}:${accessTime.getMinutes()}`,
       city: response.data.name,
       condition: response.data.weather[0].description,
-      icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`,
+      icon: response.data.weather[0].icon,
       temp: Math.round(response.data.main.temp),
       humidity: response.data.main.humidity,
       wind: Math.round(response.data.wind.speed),
