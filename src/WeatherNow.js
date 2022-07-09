@@ -1,14 +1,13 @@
 import React from "react";
 import FormatDate from "./FormatDate";
 import WeatherIcon from "./WeatherIcon";
+import WeatherTemp from "./WeatherTemp";
 import {
   WiSunrise,
   WiSunset,
   WiHumidity,
   WiStrongWind,
 } from "weather-icons-react";
-import WeatherTemp from "./WeatherTemp";
-
 export default function WeatherNow(props) {
   return (
     <div className="WeatherNow">
@@ -32,7 +31,7 @@ export default function WeatherNow(props) {
             <WeatherIcon code={props.data.icon} />
           </div>
           <div className="col-sm-5">
-            <WeatherTemp temp={props.data.temp} />
+            <WeatherTemp temp={props.data.temp} unit={"celsius"} />
           </div>
           <div className="col-sm-3">
             <ul>
