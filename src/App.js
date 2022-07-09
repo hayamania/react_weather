@@ -16,7 +16,14 @@ function App() {
           >
             open-sorced
           </a>{" "}
-          and coded by Chie HYM
+          and coded by Chie HYM and hosted on{" "}
+          <a
+            href="https://neon-toffee-80dd0b.netlify.app/"
+            target={"_blank"}
+            rel="noreferrer"
+          >
+            Netrify
+          </a>
         </p>
       </footer>{" "}
     </div>
