@@ -7,16 +7,17 @@ import {
   WiHumidity,
   WiStrongWind,
 } from "weather-icons-react";
+import WeatherTemp from "./WeatherTemp";
 
 export default function WeatherNow(props) {
   return (
     <div className="WeatherNow">
       <div className="container">
         <div className="row mt-2">
-          <div className="col-sm-3">
+          <div className="col-sm-4">
             <h1 className="ps-2">{props.data.city}</h1>
           </div>
-          <div className="col-sm-9 pt-1">
+          <div className="col-sm-8 pt-1">
             <ul>
               <li>
                 Last update: <FormatDate date={props.data.accessedDay} />{" "}
@@ -31,8 +32,7 @@ export default function WeatherNow(props) {
             <WeatherIcon code={props.data.icon} />
           </div>
           <div className="col-sm-5">
-            <span className="temperature ps-2">{props.data.temp}</span>
-            <span className="units">°C | °F</span>
+            <WeatherTemp temp={props.data.temp} />
           </div>
           <div className="col-sm-3">
             <ul>
