@@ -5,10 +5,10 @@ import WeatherForecastDay from "./WeatherForecastDay";
 
 export default function WeatherForecast(props) {
   let [loaded, setLoaded] = useState(false);
-  let [forecast, setForecast] = useState(null);
+  let [forecasts, setForecasts] = useState(null);
 
   function getForecast(response) {
-    setForecast(response.data.daily);
+    setForecasts(response.data.daily);
     setLoaded(true);
   }
 
@@ -17,9 +17,15 @@ export default function WeatherForecast(props) {
       <div className="WeatherForecast">
         <div className="container">
           <div className="row">
-            <div className="col">
-              <WeatherForecastDay forecast={forecast[0]} />
-            </div>
+            {forecasts.map(function (dailydata, index) {
+              if (index < 5) {
+                return (
+                  <div className="col-sm" key={index}>
+                    <WeatherForecastDay forecast={dailydata} />
+                  </div>
+                );
+              }
+            })}
           </div>
         </div>
       </div>
