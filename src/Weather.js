@@ -3,6 +3,7 @@ import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Weather.css";
 import WeatherNow from "./WeatherNow";
+import WeatherForecast from "./WeatherForecast";
 import PuffLoader from "react-spinners/PuffLoader";
 
 export default function Weather(props) {
@@ -66,6 +67,7 @@ export default function Weather(props) {
             </form>
           </div>
           <WeatherNow data={weather} />
+          <WeatherForecast />
         </div>
       </div>
     );

@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Raleway:wght@400;600&display=swap");
+
+:root {
+  --primary-color: #2b2d42;
+  --secondary-color: #8d99ae;
+  --text-color: #edf2f4;
+}
+.WeatherForecast {
+  color: var(--text-color);
+  text-align: center;
+}
+.WeatherForecast h1 {
+  font-family: "Raleway", sans-serif;
+  font-size: 20px;
+}
+.WeatherForecast .temperatures {
+  font-family: "Raleway", sans-serif;
+  font-size: 18px;
+}
+
+.WeatherForecast .temperature-max {
+  font-weight: 600;
+}
