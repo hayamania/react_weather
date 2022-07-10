@@ -18,7 +18,7 @@ export default function WeatherForecast(props) {
               <h1>
                 <FormatDate date={forecast.day} />
               </h1>
-              <WeatherIcon code={"02d"} size={50} />
+              <WeatherIcon code={forecast.icon} size={50} />
               <div className="temperatures mb-1">
                 <span className="temperature-max">{forecast.temp_max}°</span>{" "}
                 <span className="temperature-min">{forecast.temp_min}°</span>
@@ -39,10 +39,10 @@ export default function WeatherForecast(props) {
     const apiUnits = `metric`;
     const apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${props.coordinates.lat}&lon=${props.coordinates.lon}&exclude=current,minutely,hourly,alerts&appid=${apiKey}&units=${apiUnits}`;
     function getForecast(response) {
-      console.log(response.data.daily[0].sunrise);
-      console.log(new Date(response.data.daily[0].dt * 1000).getDay());
+      console.log(response.data.daily[0].weather[0].icon);
       setForecast({
         day: new Date(response.data.daily[0].dt * 1000).getDay(),
+        icon: response.data.daily[0].weather[0].icon,
         temp_max: Math.round(response.data.daily[0].temp.max),
         temp_min: Math.round(response.data.daily[0].temp.min),
         sunrise: `${String(
