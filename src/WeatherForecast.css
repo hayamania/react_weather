@@ -24,3 +24,11 @@
 .WeatherForecast .temperature-max {
   font-weight: 600;
 }
+.WeatherForecast .sunrise,
+.WeatherForecast .sunset {
+  margin: -5px;
+  padding: 0;
+}
+.WeatherForecast .icons {
+  color: var(--primary-color);
+}
