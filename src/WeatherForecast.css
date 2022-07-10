@@ -6,8 +6,11 @@
   --text-color: #edf2f4;
 }
 .WeatherForecast {
-  color: var(--text-color);
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
+  border-radius: 5px;
   text-align: center;
+  margin: 0 auto;
 }
 .WeatherForecast h1 {
   font-family: "Raleway", sans-serif;
