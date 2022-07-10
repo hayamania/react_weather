@@ -19,6 +19,7 @@ export default function Weather(props) {
 
     setWeather({
       loaded: true,
+      coordinates: response.data.coord,
       accessedDay: `${accessTime.getDay()}`,
       accessedTime: `${accessTime.getHours()}:${accessTime.getMinutes()}`,
       city: response.data.name,
@@ -67,7 +68,7 @@ export default function Weather(props) {
             </form>
           </div>
           <WeatherNow data={weather} />
-          <WeatherForecast />
+          <WeatherForecast coordinates={weather.coordinates} />
         </div>
       </div>
     );
