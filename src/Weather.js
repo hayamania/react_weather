@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Weather.css";
@@ -8,16 +8,17 @@ import PuffLoader from "react-spinners/PuffLoader";
 
 export default function Weather(props) {
   let [city, setCity] = useState(props.defaultCity);
-  let [loaded, setLoaded] = useState(false);
-  let [weather, setWeather] = useState({});
+  let [weather, setWeather] = useState({
+    loaded: false,
+  });
 
   function showCurrentWeather(response) {
     let sunriseTime = new Date(response.data.sys.sunrise * 1000);
     let sunsetTime = new Date(response.data.sys.sunset * 1000);
     let accessTime = new Date(response.data.dt * 1000);
 
-    setLoaded(true);
     setWeather({
+      loaded: true,
       coordinates: response.data.coord,
       accessedDay: `${accessTime.getDay()}`,
       accessedTime: `${accessTime.getHours()}:${accessTime.getMinutes()}`,
@@ -51,10 +52,7 @@ export default function Weather(props) {
   function updateCity(event) {
     setCity(event.target.value);
   }
-
-  // when coordinates changed, set loaded false to refresh
-
-  if (loaded) {
+  if (weather.loaded) {
     return (
       <div className="Weather">
         <div className="container">
