@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Weather.css";
@@ -51,8 +51,6 @@ export default function Weather(props) {
   function updateCity(event) {
     setCity(event.target.value);
   }
-
-  // when coordinates changed, set loaded false to refresh
 
   if (loaded) {
     return (
