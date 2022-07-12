@@ -3,6 +3,3 @@
   --secondary-color: #8d99ae;
   --text-color: #edf2f4;
 }
-.WeatherTemp a {
-  color: var(--text-color);
-}

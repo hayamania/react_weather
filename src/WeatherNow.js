@@ -31,7 +31,7 @@ export default function WeatherNow(props) {
             <WeatherIcon code={props.data.icon} size={90} />
           </div>
           <div className="col-sm-5">
-            <WeatherTemp temp={props.data.temp} unit={"celsius"} />
+            <WeatherTemp temp={props.data.temp} />
           </div>
           <div className="col-sm-3">
             <ul>
